@@ -6,15 +6,24 @@ $(call inherit-product, device/samsung/hero-common/hero-common.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
 # Inherit from the common Open Source product configuration
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+# Inherit some common XenonHD stuff.
+$(call inherit-product, vendor/xenonhd/config/common_full_phone.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_NAME := lineage_herolte
+PRODUCT_NAME := xenonhd_herolte
 PRODUCT_DEVICE := herolte
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SM-G930F
 PRODUCT_MANUFACTURER := samsung
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
+
+# Root options
+ROOT_METHOD=magisk
+
+# 3rd party apps
+PRODUCT_PACKAGES += \
+    AdAway \
+    KernelAdiutor \
+    MiXplorer
